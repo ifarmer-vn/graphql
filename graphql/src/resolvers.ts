@@ -1,11 +1,13 @@
 import db from '../config/db';
-import {Users} from '@src/models/Users'; // Assuming the correct relative path
+import {Users} from '@src/models/Users';
+import logger from "@src/utils/logger"; // Assuming the correct relative path
 
 const resolvers = {
   Query: {
     users: async () => {
 
       const users:Users = await db.find('users', {});
+      logger.debug(JSON.stringify(users));
       return users;
     },
     user: async (_: never, {id}: { id: string }) => db.find('users', {id}),
