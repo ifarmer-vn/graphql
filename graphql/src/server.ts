@@ -3,10 +3,11 @@ import {ApolloServer} from 'apollo-server-express';
 import 'express-async-errors';
 
 import typeDefs from './schema';
+import resolvers from "@src/resolvers";
 
 const server = new ApolloServer({
 	typeDefs,
-	resolvers: {},  // Ensure you have resolvers
+	resolvers: resolvers,  // Ensure you have resolvers
 });
 
 /******************************************************************************
